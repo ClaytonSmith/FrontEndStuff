@@ -1,0 +1,28 @@
+
+div(class='is-center test-boarder')
+  div(class='pure-g', ng-click='setActiveUser(user)')
+    div(class='pure-u-1-5', id='name')
+     h1(class='is-center') {{user.userName}}
+    
+    div(class='pure-u-1-5')
+      p(class='is-center') {{user.linkCount}}
+      hr(class='hr-80')
+      p(class='is-center') Number of links
+    
+    div(class='pure-u-1-5')
+      p(class='is-center') {{user.favoriteDomain}}
+      hr(class='hr-80')
+      p(class='is-center') Favorite site
+    
+    div(class='pure-u-1-5')
+      p(class='is-center') {{user.daysOnRecord}}
+      hr(class='hr-80')
+      p(class='is-center') Days on record
+    
+    div(class='pure-u-1-5')
+      p 
+        a(class='is-center', href="{{user.recentLink}}", type="_system")
+          {{user.recentLink}}
+      hr(class='hr-80')
+      p(class='is-center') Most recent link on reccord 
+     
