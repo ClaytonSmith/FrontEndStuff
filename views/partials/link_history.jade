@@ -1,0 +1,38 @@
+p( ng-init="history = #{JSON.stringify(history)}")
+
+div(class='is-center test-boarder')
+  div(class='pure-g')
+    div(class='pure-u-1-5')
+      h3(class='is-center') User name
+    
+    div(class='pure-u-1-5')
+//      h3(class='is-center') Number of links
+    
+    div(class='pure-u-1-5')
+//      h3(class='is-center') Total conversations
+    
+    div(class='pure-u-1-5')
+//      h3(class='is-center') Average link per conversation
+    
+    div(class='pure-u-1-5')
+//      h3(class='is-center') Most recent link on reccord 
+
+
+
+div(class="pure-menu")
+  ul(class="pure-menu-list")
+    li(class="pure-menu-item pure-menu-selected", ng-repeat="record in history | orderBy: 'date'")
+      div(class="strike")
+        span {{ getDateString(record.date)}}
+ 
+      div(class="pure-menu")
+        ul(class="pure-menu-list")
+          li(class="pure-menu-item pure-menu-selected", ng-repeat="message in record.links")
+ 
+            div(class='pure-u-1-24 is-center')
+              p {{getTimeString(message.date)}}
+            div(class='pure-u-4-24 is-center')
+              p {{ message.user }}
+            div(class='pure-u-19-24')
+              a(class="pure-menu-link", href="{{ message.url }}", target='_blank') {{message.url }}
+
